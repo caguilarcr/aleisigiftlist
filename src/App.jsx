@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
+import banner from '/banner.png'
 import './App.css'
 import { createClient } from "@supabase/supabase-js";
 
@@ -26,7 +27,7 @@ function App() {
 
   return (
     <>
-      <header class="top-banner">
+      <header class="top-banner" style={{backgroundImage: `url(${banner})`}}>
         <div class="banner-content">
         </div>
       </header>
