@@ -20,6 +20,8 @@
 
 body {
   display: block;
+  background-color: white;
+  color: black;
 }
 
 @keyframes logo-spin {
