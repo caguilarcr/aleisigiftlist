@@ -21,8 +21,26 @@ function App() {
   }, []);
 
   async function getRegalos() {
-    const { data } = await supabase.from("Regalos").select();
+    const { data } = await supabase.from("Regalos")
+                                   .select()
+                                   .eq('reservado', false);
     setRegalos(data);
+  }
+
+  async function reservarRegalo(regalo, event) {
+    const { data, error } = await supabase
+      .from('Regalos')
+      .update({ reservado: !regalo.reservado })
+      .eq('id', regalo.id);
+    regalo.reservado = !regalo.reservado;
+    const nextRegalos = regalos.map(r => {
+      if (r.id === regalo.id) return regalo;
+      else return r;
+    })
+    setRegalos(nextRegalos);
+    if (regalo.reservado) {
+      alert(`Gracias por reservar: ${regalo.nombre}`);
+    }
   }
 
   return (
@@ -41,7 +59,7 @@ function App() {
         {regalos.map((regalo) => (
           <li key={regalo.id}>
             <span class="gift-name">{regalo.nombre}</span>
-            <button class={"reserve-btn " + (regalo.reservado ? 'reserved' : '') }>
+            <button onClick={(e) => reservarRegalo(regalo, e)} class={"reserve-btn " + (regalo.reservado ? 'reserved' : '') }>
               {regalo.reservado ? 'Reservado' : 'Reservar'}
             </button>
           </li>
