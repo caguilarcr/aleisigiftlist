@@ -52,13 +52,13 @@ function App() {
       <h1>Lista de Regalo</h1>
       <div className="card">
         <p>
-          Seleccione el regalo que desea reservar para Alejandra e Isaías
+          Seleccione el regalo que desea reservar para Isaías y Alejandra
         </p>
       </div>
       <ul id="gift-list">
         {regalos.map((regalo) => (
           <li key={regalo.id}>
-            <span class="gift-name">{regalo.nombre}</span>
+            <span class="gift-name">{regalo.nombre} {regalo.link ? <a href={regalo.link} target="_blank">ver</a> : ''}</span>
             <button onClick={(e) => reservarRegalo(regalo, e)} class={"reserve-btn " + (regalo.reservado ? 'reserved' : '') }>
               {regalo.reservado ? 'Reservado' : 'Reservar'}
             </button>
