@@ -6,7 +6,7 @@ import './App.css'
 import { createClient } from "@supabase/supabase-js";
 
 
-const supabase = createClient("https://ygsfkxzywnoexaqlwfgi.supabase.co", "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Inlnc2ZreHp5d25vZXhhcWx3ZmdpIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MzI2NzUwNzYsImV4cCI6MjA0ODI1MTA3Nn0.oCUcKOwthuE5ygcnspO1KapA-i8aeqwFKZw_SIyzI7I");
+const supabase = createClient("https://ehiinnplyvchlylcwfsh.supabase.co", "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImVoaWlubnBseXZjaGx5bGN3ZnNoIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MzQzODE3MzUsImV4cCI6MjA0OTk1NzczNX0.e301Fi4NQX-FIo0_ExM_PbXg7n1iYfbm3g8YO141Fio");
 
 function App() {
   const [regalos, setRegalos] = useState([]);
