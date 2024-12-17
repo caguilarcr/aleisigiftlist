@@ -39,7 +39,7 @@ body {
 }
 
 .card {
-  padding: 2em;
+  padding: 0.5em 3em 0.5em 3em;
 }
 
 .read-the-docs {
@@ -69,8 +69,9 @@ li {
   border-radius: 5px;
 }
 
-li span {
+li span, li a {
   text-align: left;
+  align-self: center;
 }
 
 .reserve-btn {
@@ -141,4 +142,8 @@ li span {
   height: 100%;
   background: linear-gradient(to bottom, rgba(0,0,0,0.5), rgba(0,0,0,0.7));
   z-index: 1;
+}
+
+.green {
+  color: #4CAF50;
 }

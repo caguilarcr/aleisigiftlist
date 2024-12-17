@@ -23,7 +23,8 @@ function App() {
   async function getRegalos() {
     const { data } = await supabase.from("Regalos")
                                    .select()
-                                   .eq('reservado', false);
+                                   .eq('reservado', false)
+                                   .order('id', { ascending: true});
     setRegalos(data);
   }
 
@@ -58,7 +59,15 @@ function App() {
       <ul id="gift-list">
         {regalos.map((regalo) => (
           <li key={regalo.id}>
-            <span class="gift-name">{regalo.nombre} {regalo.link ? <a href={regalo.link} target="_blank">ver</a> : ''}</span>
+            {regalo.link ? 
+              <a href={regalo.link} target="_blank">
+                <span class="gift-name">{regalo.nombre} <span class="green">(Más detalles)</span></span>
+              </a> :
+              <span class="gift-name">{regalo.nombre}</span>
+            }
+
+            {/* <span class="gift-name">{regalo.nombre} {regalo.link ? <a href={regalo.link} target="_blank">(ver)</a> : ''}</span> */}
+            
             <button onClick={(e) => reservarRegalo(regalo, e)} class={"reserve-btn " + (regalo.reservado ? 'reserved' : '') }>
               {regalo.reservado ? 'Reservado' : 'Reservar'}
             </button>
